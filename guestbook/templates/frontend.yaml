@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: "{{ .Values.imageTagPrefix }}/{{ .Chart.Name }}_frontend:{{ .Chart.Version }}"
+        image: "{{ .Values.imageTagPrefix }}/{{ .Chart.Name }}-frontend:{{ .Chart.Version }}"
         resources:
           requests:
             cpu: 100m

@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: slave
-        image: "{{ .Values.imageTagPrefix }}/{{ .Chart.Name }}_redis-slave:{{ .Chart.Version }}"
+        image: "{{ .Values.imageTagPrefix }}/{{ .Chart.Name }}-redis-slave:{{ .Chart.Version }}"
         resources:
           requests:
             cpu: 100m
