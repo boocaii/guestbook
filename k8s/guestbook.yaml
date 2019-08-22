@@ -79,7 +79,7 @@ spec:
     spec:
       containers:
       - name: slave
-        image: hub.yuansuan.cn/xx/gb-redisslave:v1
+        image: hub.yuansuan.cn/xx/gb-redisslave
         resources:
           requests:
             cpu: 100m
@@ -130,7 +130,7 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: hub.yuansuan.cn/xx/gb-frontend:v1
+        image: hub.yuansuan.cn/xx/gb-frontend
         resources:
           requests:
             cpu: 100m
