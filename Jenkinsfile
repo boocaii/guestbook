@@ -18,10 +18,8 @@ node {
         sh "docker push ${imageTagPrefix}/${appName}-frontend:${version}"
         sh "docker push ${imageTagPrefix}/${appName}-redis-slave:${version}"
 
-    //stage "Deploy"
-
-        // kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'kenzan_kubeconfig'
-        // sh "kubectl apply -f guestbook-all-in-one.yaml"
+    stage "Deploy"
+        sh "helm upgrade guestbook ./guestbook"
 
 }
 
