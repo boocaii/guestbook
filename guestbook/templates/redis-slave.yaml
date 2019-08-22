@@ -1,7 +1,7 @@
 apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
 kind: Deployment
 metadata:
-  name: "{{ include "guestbook.name" . }}_redis-slave"
+  name: "{{ .Chart.Name }}_redis-slave"
 spec:
   selector:
     matchLabels:
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: slave
-        image: "{{ .Values.imageTagPrefix }}/{{ include "guestbook.name" . }}_redis-slave:{{ .Values.releaseVersion }}"
+        image: "{{ .Values.imageTagPrefix }}/{{ .Chart.Name }}_redis-slave:{{ .Chart.Version }}"
         resources:
           requests:
             cpu: 100m
@@ -38,7 +38,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: "{{ include "guestbook.name" . }}_redis-slave"
+  name: "{{ .Chart.Name }}_redis-slave"
   labels:
     app: redis
     tier: backend

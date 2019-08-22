@@ -1,7 +1,7 @@
 apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
 kind: Deployment
 metadata:
-  name: "{{ include "guestbook.name" . }}_frontend"
+  name: "{{ .Chart.Name }}_frontend"
 spec:
   selector:
     matchLabels:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: "{{ .Values.imageTagPrefix }}/{{ include "guestbook.name" . }}_frontend:{{ .Values.releaseVersion }}"
+        image: "{{ .Values.imageTagPrefix }}/{{ .Chart.Name }}_frontend:{{ .Chart.Version }}"
         resources:
           requests:
             cpu: 100m
@@ -36,7 +36,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: "{{ include "guestbook.name" . }}_frontend"
+  name: "{{ .Chart.Name }}_frontend"
   labels:
     app: guestbook
     tier: frontend

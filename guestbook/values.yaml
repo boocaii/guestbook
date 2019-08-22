@@ -3,11 +3,8 @@
 # Declare variables to be passed into your templates.
 
 # --------------------------------------------
-
 registryHost: hub.yuansuan.cn
 imageTagPrefix: hub.yuansuan.cn/xx
-
-releaseVersion: 0.1.0
 # --------------------------------------------
 
 replicaCount: 1
