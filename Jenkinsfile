@@ -2,7 +2,7 @@ node {
     // checkout code from scm
     checkout scm
     
-    // parse info from values.yaml of helm
+    // parse info from `Chart.yaml` and `values.yaml` of helm
     def chart = readYaml file: './guestbook/Chart.yaml'
     def values = readYaml file: './guestbook/values.yaml'
 
